@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Aswini Kumar Singh — Computer Science Engineering student, aspiring software developer and data analyst." />
+  <title>Aswini Kumar Singh | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#08090d; --surface:#11131a; --surface2:#171a23; --text:#f5f7fb;
+      --muted:#a7adbb; --line:rgba(255,255,255,.10); --accent:#8b7cff;
+      --accent2:#45e6b0; --glow:rgba(139,124,255,.25); --max:1160px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"DM Sans",sans-serif;background:radial-gradient(circle at 80% 5%,rgba(139,124,255,.13),transparent 30%),var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+    .container{width:min(var(--max),92%);margin:auto}
+    .noise{position:fixed;inset:0;pointer-events:none;opacity:.035;z-index:999;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:min(900px,92%);z-index:50;padding:10px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(8,9,13,.72);backdrop-filter:blur(18px);display:flex;justify-content:space-between;align-items:center;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+    .brand{font-family:"Space Grotesk";font-weight:700;padding:8px 12px}.brand span{color:var(--accent)}
+    .navlinks{display:flex;gap:4px}.navlinks a{padding:8px 13px;color:var(--muted);font-size:.9rem;border-radius:999px;transition:.25s}.navlinks a:hover{color:var(--text);background:rgba(255,255,255,.08)}
+    .hero{min-height:100vh;display:grid;place-items:center;padding:120px 0 80px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--accent2);font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 18px var(--accent2);animation:pulse 1.7s infinite}
+    @keyframes pulse{50%{opacity:.35;transform:scale(.75)}}
+    h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.05}
+    h1{font-size:clamp(3.1rem,7vw,6.5rem);letter-spacing:-.06em;max-width:800px}
+    .gradient{background:linear-gradient(110deg,#fff 15%,#9b90ff 55%,#45e6b0);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{margin:26px 0;color:var(--muted);font-size:1.08rem;max-width:680px}
+    .tagline{font-size:clamp(1.05rem,2vw,1.35rem);color:#dce0ea;max-width:680px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:9px;padding:13px 18px;border-radius:13px;border:1px solid var(--line);cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.28)}
+    .btn.primary{background:var(--text);color:#090a0e;font-weight:700}.btn.secondary{background:rgba(255,255,255,.04);color:var(--text)}
+    .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.35);transform:scale(0);animation:ripple .55s linear;pointer-events:none}
+    @keyframes ripple{to{transform:scale(5);opacity:0}}
+    .photo-wrap{position:relative;width:min(390px,78vw);aspect-ratio:1;margin:auto;display:grid;place-items:center}
+    .orbit{position:absolute;inset:-12%;border:1px solid rgba(139,124,255,.25);border-radius:50%;animation:spin 15s linear infinite}
+    .orbit:after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:var(--accent);top:7%;left:18%;box-shadow:0 0 25px var(--accent)}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .photo-ring{width:88%;height:88%;border-radius:50%;padding:7px;background:conic-gradient(from 0deg,var(--accent),transparent 35%,var(--accent2),transparent 72%,var(--accent));animation:spinReverse 14s linear infinite}
+    @keyframes spinReverse{to{transform:rotate(-360deg)}}
+    .photo{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center 22%;border:7px solid #0c0e13;filter:saturate(1.05);animation:float 4s ease-in-out infinite}
+    @keyframes float{50%{transform:translateY(-8px)}}
+    .photo-glow{position:absolute;width:65%;height:65%;background:var(--glow);filter:blur(65px);z-index:-1}
+    .section{padding:110px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}.kicker{color:var(--accent);font-size:.78rem;text-transform:uppercase;letter-spacing:.18em;font-weight:700;margin-bottom:9px}.section h2{font-size:clamp(2.2rem,5vw,4rem);letter-spacing:-.045em}.section-intro{color:var(--muted);max-width:520px}
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}.panel{background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 18px 50px rgba(0,0,0,.14)}
+    .bio{font-size:1.08rem;color:#c8cdd7}.bio strong{color:#fff}.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.tag{border:1px solid var(--line);padding:8px 11px;border-radius:999px;color:#d9dce5;background:rgba(255,255,255,.035);font-size:.86rem}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.stat{padding:22px;border-radius:18px;background:rgba(255,255,255,.035);border:1px solid var(--line)}.stat b{display:block;font:700 2.2rem "Space Grotesk";color:#fff}.stat span{color:var(--muted);font-size:.9rem}
+    .timeline{position:relative;margin-left:12px;padding-left:28px;border-left:1px solid var(--line)}.timeline-item{position:relative;padding:0 0 28px}.timeline-item:last-child{padding-bottom:0}.timeline-item:before{content:"";position:absolute;left:-35px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}
+    .year{color:var(--accent2);font-size:.82rem;font-weight:700;letter-spacing:.08em}.timeline h3{font-size:1.35rem;margin:5px 0}.timeline p{color:var(--muted)}
+    .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.project{min-height:330px;display:flex;flex-direction:column;justify-content:space-between;transition:.3s;transform-style:preserve-3d}.project:hover{transform:translateY(-8px);border-color:rgba(139,124,255,.45);box-shadow:0 20px 60px rgba(0,0,0,.25)}.project-number{font:700 3rem "Space Grotesk";color:rgba(255,255,255,.12)}.project h3{font-size:1.45rem;margin:20px 0 10px}.project p{color:var(--muted);font-size:.95rem}.project-footer{margin-top:25px;display:flex;justify-content:space-between;gap:10px;align-items:center}.mini-tags{display:flex;flex-wrap:wrap;gap:6px}.mini-tag{font-size:.72rem;color:#cdd1dc;border:1px solid var(--line);padding:5px 8px;border-radius:8px}.arrow{font-size:1.4rem;color:var(--accent)}
+    .experience{margin-top:18px}.experience-card{display:grid;grid-template-columns:180px 1fr;gap:30px;align-items:start}.experience-card h3{font-size:1.5rem}.muted{color:var(--muted)}
+    .cert-grid{display:flex;flex-wrap:wrap;gap:10px}.cert{padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03);color:#d7dbe4}
+    .contact{position:relative;overflow:hidden}.contact:before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:var(--glow);filter:blur(70px);right:-100px;top:-120px}.contact-content{position:relative;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}.contact h2{max-width:700px}.contact-links{display:flex;flex-wrap:wrap;gap:10px}
+    footer{padding:35px 0;color:#777e8d;border-top:1px solid var(--line);font-size:.88rem;display:flex;justify-content:space-between;gap:20px}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:none}
+    .cursor{position:fixed;width:22px;height:22px;border:1px solid rgba(255,255,255,.5);border-radius:50%;pointer-events:none;z-index:1000;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s;mix-blend-mode:difference}.cursor.active{width:48px;height:48px}
+    @media(max-width:900px){.hero-grid,.about-grid,.contact-content{grid-template-columns:1fr}.hero{padding-top:140px}.photo-wrap{order:-1}.project-grid{grid-template-columns:1fr 1fr}.section-head{display:block}.section-intro{margin-top:15px}.experience-card{grid-template-columns:1fr;gap:8px}}
+    @media(max-width:620px){nav{border-radius:18px}.navlinks a{padding:7px 8px;font-size:.78rem}.brand{display:none}.navlinks{width:100%;justify-content:space-around}.project-grid{grid-template-columns:1fr}.section{padding:80px 0}h1{font-size:3.3rem}.stats{grid-template-columns:1fr 1fr}.cursor{display:none}footer{display:block}footer span{display:block;margin-top:7px}}
+  </style>
+</head>
+<body>
+<div class="noise"></div><div class="cursor" id="cursor"></div>
+
+<nav>
+  <a class="brand" href="#home">AK<span>.</span></a>
+  <div class="navlinks">
+    <a href="#about">About</a><a href="#education">Education</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow"><i class="dot"></i> Computer Science Engineering Student</div>
+      <h1>Building ideas into <span class="gradient">useful digital experiences.</span></h1>
+      <p class="tagline">Aspiring software developer & data analyst with a strong interest in problem-solving, web development, data, and learning new technologies.</p>
+      <p class="hero-copy">I’m Aswini Kumar Singh — a motivated CSE student focused on turning foundational programming knowledge into real-world projects and hands-on experience.</p>
+      <div class="actions">
+        <a class="btn primary magnetic" href="#projects">Explore Projects ↗</a>
+        <a class="btn secondary magnetic" href="#contact">Let's Connect →</a>
+      </div>
+    </div>
+    <div class="photo-wrap reveal">
+      <div class="photo-glow"></div><div class="orbit"></div>
+      <div class="photo-ring"><img class="photo" src="assets/ChatGPT%20Image%20Aug%2022%2C%202026%2C%2002_33_23%20PM.png" alt="Aswini Kumar Singh"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-head reveal"><div><div class="kicker">01 / About</div><h2>A curious builder.</h2></div><p class="section-intro">A snapshot of my background, capabilities, and the skills I’m actively developing.</p></div>
+    <div class="about-grid">
+      <div class="panel reveal">
+        <p class="bio">Motivated and hardworking <strong>Computer Science Engineering student</strong> seeking opportunities to apply knowledge in programming, data structures, and web development. I enjoy exploring new technologies, contributing to real-world projects, and improving through hands-on work. My interests include <strong>software development, data analysis, and problem-solving.</strong></p>
+        <div class="tags">
+          <span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Django</span><span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">React</span><span class="tag">TypeScript</span>
+        </div>
+      </div>
+      <div class="panel stats reveal">
+        <div class="stat"><b>8.77</b><span>Current CGPA</span></div>
+        <div class="stat"><b>3</b><span>Featured Projects</span></div>
+        <div class="stat"><b>2028</b><span>B.Tech Graduation</span></div>
+        <div class="stat"><b>6</b><span>Certifications listed</span></div>
+      </div>
+    </div>
+    <div class="panel experience reveal" style="margin-top:18px">
+      <div class="experience-card">
+        <div><div class="kicker">Experience</div><span class="year">JUL — AUG 2026</span></div>
+        <div><h3>Data Analyst — Virtual Internship</h3><p class="muted">3 Skill Internship</p><p style="margin-top:10px;color:#bfc4cf">Analyzed and cleaned datasets, performed EDA to identify trends and patterns, used Excel, SQL and Python for analysis, and created reports and interactive dashboards for data-driven insights.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="education">
+  <div class="container">
+    <div class="section-head reveal"><div><div class="kicker">02 / Education</div><h2>The learning path.</h2></div><p class="section-intro">Academic milestones documented in my resume.</p></div>
+    <div class="timeline">
+      <article class="timeline-item reveal"><span class="year">2024 — 2028</span><h3>B.Tech — Computer Science Engineering</h3><p>Pimpri Chinchwad University, Pune · <strong style="color:#fff">CGPA: 8.77</strong></p></article>
+      <article class="timeline-item reveal"><span class="year">2024</span><h3>Class XII — Science</h3><p>Guru Tegh Bahadur Public School, WB · <strong style="color:#fff">74%</strong></p></article>
+      <article class="timeline-item reveal"><span class="year">2022</span><h3>Class X</h3><p>Guru Tegh Bahadur Public School, WB · <strong style="color:#fff">76%</strong></p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-head reveal"><div><div class="kicker">03 / Projects</div><h2>Things I’ve built.</h2></div><p class="section-intro">Three resume projects spanning data analytics, AI-assisted resume analysis, and peer-to-peer web applications.</p></div>
+    <div class="project-grid">
+      <article class="panel project reveal tilt"><div><div class="project-number">01</div><h3>E-Commerce Data Analysis Dashboard</h3><p>Interactive Power BI dashboard analyzing sales, profit, quantity and AOV with KPI cards, dynamic visuals, state-wise and monthly analysis, customer performance, payment modes, and product trends.</p></div><div class="project-footer"><div class="mini-tags"><span class="mini-tag">Power BI</span><span class="mini-tag">Excel</span></div><span class="arrow">↗</span></div></article>
+      <article class="panel project reveal tilt"><div><div class="project-number">02</div><h3>Resume Analyzer — Resumind</h3><p>Web app that analyzes a resume, provides an ATS score, and highlights necessary keywords that can strengthen the resume.</p></div><div class="project-footer"><div class="mini-tags"><span class="mini-tag">Node.js</span><span class="mini-tag">React</span><span class="mini-tag">TypeScript</span><span class="mini-tag">Vite</span></div><span class="arrow">↗</span></div></article>
+      <article class="panel project reveal tilt"><div><div class="project-number">03</div><h3>Tool-Sarrthi</h3><p>P2P marketplace web app focused on exchanging tools between users, with separate borrower and lender flows for listing and exchanging tools.</p></div><div class="project-footer"><div class="mini-tags"><span class="mini-tag">React</span><span class="mini-tag">Node.js</span><span class="mini-tag">Supabase</span><span class="mini-tag">TypeScript</span></div><span class="arrow">↗</span></div></article>
+    </div>
+    <p class="muted reveal" style="margin-top:18px;font-size:.86rem">GitHub URLs were not included in the supplied resume, so project GitHub buttons are intentionally not fabricated. Add your repository URLs in the HTML when available.</p>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="panel contact reveal">
+      <div class="contact-content">
+        <div><div class="kicker">04 / Contact</div><h2>Have an idea, opportunity, or project? <span class="gradient">Let’s talk.</span></h2><p class="muted" style="margin-top:18px">I’m open to learning, collaborating, and contributing to real-world projects.</p></div>
+        <div class="contact-links">
+          <a class="btn primary magnetic" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=singhaswini19@gmail.com" target="_blank" rel="noopener noreferrer">Email ↗</a>
+          <a class="btn secondary magnetic" href="https://github.com/aswinisingh31" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="btn secondary magnetic" href="https://www.linkedin.com/in/aswini-kumar-singh-422b78312/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px">
+  <div class="container">
+    <div class="section-head reveal"><div><div class="kicker">Extra</div><h2>Beyond the code.</h2></div></div>
+    <div class="panel reveal">
+      <div class="cert-grid">
+        <span class="cert">Introduction to Front-End Development</span><span class="cert">Programming with C++</span><span class="cert">Communicating Your Best Self</span><span class="cert">Write Smarter with Overleaf and LaTeX</span><span class="cert">Spoken Tutorial Project, IIT Bombay Introduction</span><span class="cert">Foundations of Cybersecurity</span>
+      </div>
+      <p class="muted" style="margin-top:20px"><strong style="color:#fff">Languages:</strong> English (Professional Proficiency) · Hindi (Native) · Bengali (Basic)</p>
+      <p class="muted" style="margin-top:7px"><strong style="color:#fff">Soft skills:</strong> Analytical Thinking · Problem-Solving · Team Collaboration · Time Management · Communication</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="container"><span>© 2026 Aswini Kumar Singh</span><span>Designed & built as a personal portfolio.</span></footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show') }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Button ripple + micro interaction
+  document.querySelectorAll('.btn').forEach(btn => btn.addEventListener('click', function(e){
+    const r = document.createElement('span'), rect = this.getBoundingClientRect(), size = Math.max(rect.width, rect.height);
+    r.className='ripple'; r.style.width=r.style.height=size+'px';
+    r.style.left=(e.clientX-rect.left-size/2)+'px'; r.style.top=(e.clientY-rect.top-size/2)+'px';
+    this.appendChild(r); setTimeout(()=>r.remove(),600);
+  }));
+
+  // Cursor
+  const cursor=document.getElementById('cursor');
+  window.addEventListener('mousemove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+  document.querySelectorAll('a,.project,.tag').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cursor.classList.add('active'));
+    el.addEventListener('mouseleave',()=>cursor.classList.remove('active'));
+  });
+
+  // Subtle 3D tilt on project cards
+  document.querySelectorAll('.tilt').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(900px) rotateX(${y*-4}deg) rotateY(${x*5}deg) translateY(-5px)`;
+    });
+    card.addEventListener('mouseleave',()=>card.style.transform='');
+  });
+
+  // Gentle magnetic buttons
+  document.querySelectorAll('.magnetic').forEach(btn=>{
+    btn.addEventListener('mousemove',e=>{
+      const r=btn.getBoundingClientRect();
+      btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.08}px, ${(e.clientY-r.top-r.height/2)*.08}px)`;
+    });
+    btn.addEventListener('mouseleave',()=>btn.style.transform='');
+  });
+
+  function placeholder(e,name){
+    e.preventDefault();
+    alert(name + " URL is not present in the supplied resume. Replace this button's href with your profile URL.");
+  }
+</script>
+</body>
+</html>
